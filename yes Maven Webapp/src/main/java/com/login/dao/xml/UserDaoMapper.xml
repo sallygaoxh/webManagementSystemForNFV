@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.login.dao.IUserDao">
+
+<resultMap type="com.login.model.User" id="user"> 
+ 		<id property="username" column="UNAME" /> 
+ 		<result property="password" column="PASSWORD" />
+ 		<result property="rank" column="RANK" />	
+ 		<result property="vlan" column="vlan" />	
+	</resultMap>
+		<select id="user" parameterType="map" resultMap="user">			
+		select * from userinfo where uname=#{us.username} and password=#{us.password} and rank=#{us.rank};
+	    </select>
+	    <select id="selectAllAdmin"  resultType="com.login.model.User">			
+		select * from userinfo where rank="admin";
+	    </select>
+</mapper>

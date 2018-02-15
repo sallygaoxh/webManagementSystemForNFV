@@ -1,0 +1,210 @@
+/*一些固定的参数*/
+table{
+	width: 60%;
+	text-align:center;
+}
+
+/*zebra是所有表格的样式*/
+.zebra{
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	border-collapse:collapse;	
+}
+
+.zebra td, .zebra th {
+	padding: 10px;
+	border-left:none;
+	border-right:none;
+	border-top:none;
+	border-bottom: 1px solid #f2f2f2;
+}
+
+.zebra tbody tr:nth-child(even) {
+	background: #f5f5f5;
+	-webkit-box-shadow: 0 1px 0 rgba(255,255,255,.8) inset; 
+	-moz-box-shadow:0 1px 0 rgba(255,255,255,.8) inset;  
+	box-shadow: 0 1px 0 rgba(255,255,255,.8) inset;        
+}
+
+.zebra th {
+	text-align: center;
+	text-shadow: 0 1px 0 rgba(255,255,255,.5); 
+	border-bottom: 1px solid #ccc;
+	background-color: #eee;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#eee));
+	background-image: -webkit-linear-gradient(top, #f5f5f5, #eee);
+	background-image:    -moz-linear-gradient(top, #f5f5f5, #eee);
+	background-image:     -ms-linear-gradient(top, #f5f5f5, #eee);
+	background-image:      -o-linear-gradient(top, #f5f5f5, #eee); 
+	background-image:         linear-gradient(top, #f5f5f5, #eee);
+}
+
+.zebra th:first-child {
+	-moz-border-radius: 6px 0 0 0;
+	-webkit-border-radius: 6px 0 0 0;
+	border-radius: 6px 0 0 0;  
+}
+
+.zebra th:last-child {
+	-moz-border-radius: 0 6px 0 0;
+	-webkit-border-radius: 0 6px 0 0;
+	border-radius: 0 6px 0 0;
+}
+
+.zebra th:only-child{
+	-moz-border-radius: 6px 6px 0 0;
+	-webkit-border-radius: 6px 6px 0 0;
+	border-radius: 6px 6px 0 0;
+}
+
+.zebra tfoot td {
+	border-bottom: 0;
+	border-top: 1px solid #fff;
+	background-color: #f1f1f1;  
+}
+
+.zebra tfoot td:first-child {
+	-moz-border-radius: 0 0 0 6px;
+	-webkit-border-radius: 0 0 0 6px;
+	border-radius: 0 0 0 6px;
+}
+
+.zebra tfoot td:last-child {
+	-moz-border-radius: 0 0 6px 0;
+	-webkit-border-radius: 0 0 6px 0;
+	border-radius: 0 0 6px 0;
+}
+
+.zebra tfoot td:only-child{
+	-moz-border-radius: 0 0 6px 6px;
+	-webkit-border-radius: 0 0 6px 6px
+	border-radius: 0 0 6px 6px
+}
+/*
+.button {
+	margin-left:0px;
+	margin-right:auto;
+	max-width: 700px;
+	background: #F7F7F7;
+	padding: 25px 15px 25px 10px;
+	font: 14px Georgia, "Times New Roman", Times, serif;
+	color: #888;
+	text-shadow: 1px 1px 1px #FFF;
+	border:1px solid #E4E4E4;
+	}
+	*/
+/*zebra end*/
+	
+/*按钮样式*/
+.zebrabutton {
+	background: #E27575;
+	border: none;
+	color: #FFF;
+	box-shadow: 1px 1px 5px #B6B6B6;
+	border-radius: 3px;
+	text-shadow: 1px 1px 1px #9E3F3F;
+	cursor: pointer;
+	padding-top: 10px;
+	padding-right: 25px;
+	padding-bottom: 10px;
+	padding-left: 25px;
+	text-align: center;
+	margin-right: 9.5%;
+	margin-left: 9.5%;
+}
+.zebrabutton:hover {
+	background: #CF7A7A
+}
+/*按钮样式end*/
+
+
+
+/*form表单样式*/
+.basic-grey {
+	margin-left:0px;
+	margin-right:auto;
+	max-width: 600px;
+	background: NULL;
+	padding: 25px 15px 25px 10px;
+	font: 13px Georgia, "Times New Roman", Times, serif;
+	color: #333333;
+	text-shadow: 1px 1px 1px #FFF;
+}
+
+.basic-grey h1 {
+	font-size: 25px;
+	padding: 0px 0px 10px 40px;
+	display: block;
+	border-bottom:1px solid #E4E4E4;
+	margin: -10px -15px 30px -10px;;
+	color: #888;
+}
+.basic-grey h1>span {
+	display: block;
+	font-size: 11px;
+}
+.basic-grey label {
+	display: block;
+	margin: 0px;
+}
+.basic-grey label>span {
+	float: left;
+	width: 20%;
+	text-align: right;
+	padding-right: 10px;
+	margin-top: 10px;
+	color: #888;
+}
+.basic-grey input[type="text"], .basic-grey input[type="email"], .basic-grey textarea {
+	border: 1px solid #DADADA;
+	color: #888;
+	height: 30px;
+	margin-bottom: 16px;
+	margin-right: 6px;
+	margin-top: 2px;
+	outline: 0 none;
+	padding: 3px 3px 3px 5px;
+	width: 40%;
+	font-size: 12px;
+	line-height:15px;
+	 box-shadow: inset 0px 1px 4px #ECECEC;
+	 -moz-box-shadow: inset 0px 1px 4px #ECECEC;
+	 -webkit-box-shadow: inset 0px 1px 4px #ECECEC;
+}
+.basic-grey select {
+	border: 1px solid #DADADA;
+	color: #888;
+	height: 30px;
+	margin-bottom: 16px;
+	margin-right: 6px;
+	margin-top: 2px;
+	outline: 0 none;
+	padding: 3px 3px 3px 5px;
+	width: 10%;
+	font-size: 12px;
+	line-height:15px;
+	 box-shadow: inset 0px 1px 4px #ECECEC;
+	 -moz-box-shadow: inset 0px 1px 4px #ECECEC;
+	 -webkit-box-shadow: inset 0px 1px 4px #ECECEC;
+}
+.basic-grey textarea{
+	padding: 5px 3px 3px 5px;
+}
+.basic-grey select {
+/* 	background: #FFF url('down-arrow.png') no-repeat right;
+	background: #FFF url('down-arrow.png') no-repeat right); */
+	 appearance:none;
+	 -webkit-appearance:none;
+	 -moz-appearance: none;
+	text-indent: 0.01px;
+	 text-overflow: '';
+	width: 10%;
+	height: 35px;
+	line-height: 25px;
+}
+.basic-grey textarea{
+	height:100px;
+}
+/*form表单样式结束*/

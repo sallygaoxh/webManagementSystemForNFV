@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+<link href="../登陆界面/images/style.css"
+rel="stylesheet" type="text/css">
+
+</head>
+
+
+
+<body>
+
+<div class="login-form">
+					<div class="head"><img  src="../登陆界面/images/mem2.jpg" alt="" /></div>
+				
+				<form>
+					<li class="istit">  <h1 style= "display:inline ">NetWork Manager</h1> 
+    								<h2 style= "display:inline ">v.15.1</h2>
+					</li>
+					<li class="notit">
+						<input type="text" class="text" value="USERNAME" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'USERNAME';}"><a href="#" class=" icon user"></a>
+					</li>
+					<li class="notit">
+						<input type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}"><a href="#" class=" icon lock"></a>
+					</li>
+					<div class="radio-container">
+					<input type="radio" checked="checked" name="right" value="user" />用户
+					<input type="radio" name="right" value="admin" />管理员
+					<input type="radio" name="right" value="hiadmin" />高级管理员
+					</div>
+					<div class="p-container">
+								<label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i></i>Remember Me</label>
+								<input type="submit" onclick="myFunction()" value="登陆">
+							<div class="clear"> </div>
+					</div>
+				</form>
+</div>
+
+</body>
+</html>

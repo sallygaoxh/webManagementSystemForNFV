@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+	<!-- 配置驱动 -->
+	<classPathEntry location="D:\mysql-connector-java-5.1.20-bin.jar" />
+	<context id="context1">
+		<commentGenerator>
+			<property name="suppressDate" value="true" />
+			<!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+			<property name="suppressAllComments" value="true" />
+		</commentGenerator>
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://localhost:3306/mysjk" userId="root"
+			password="" />
+		<!-- 生成实体类 实体bean文件 -->
+		<!-- <javaModelGenerator targetPackage="com.main.model"
+			targetProject="yes Maven Webapp" />
+		mapper xml文件
+		<sqlMapGenerator targetPackage="com.main.dao.xml"
+			targetProject="yes Maven Webapp" />
+		mapper 接口文件
+		<javaClientGenerator targetPackage="com.main.dao"
+			targetProject="yes Maven Webapp" type="XMLMAPPER" /> -->
+		<!-- <table schema="" tableName="l_port" enableCountByExample="false"
+			enableUpdateByExample="false" enableDeleteByExample="false"
+			enableSelectByExample="false" selectByExampleQueryId="false"></table>
+		<table schema="" tableName="l_vlan" enableCountByExample="false"
+			enableUpdateByExample="false" enableDeleteByExample="false"
+			enableSelectByExample="false" selectByExampleQueryId="false"></table> -->
+		<!-- <table schema="" tableName="l_rouTab" enableCountByExample="false"
+			enableUpdateByExample="false" enableDeleteByExample="false"
+			enableSelectByExample="false" selectByExampleQueryId="false"></table> -->
+			<javaModelGenerator targetPackage="com.login.model"
+				targetProject="yes Maven Webapp" />
+		
+			<sqlMapGenerator targetPackage="com.login.dao.xml"
+				targetProject="yes Maven Webapp" />
+		
+			<javaClientGenerator targetPackage="com.login.dao"
+				targetProject="yes Maven Webapp" type="XMLMAPPER" />
+			
+			 <table schema="" tableName="userinfo" enableCountByExample="false"
+			enableUpdateByExample="false" enableDeleteByExample="false"
+			enableSelectByExample="false" selectByExampleQueryId="false"></table> 
+
+	</context>
+</generatorConfiguration>

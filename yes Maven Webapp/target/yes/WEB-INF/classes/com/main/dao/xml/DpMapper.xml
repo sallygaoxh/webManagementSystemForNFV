@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.main.dao.DpDao">
+
+<select id="selectDp" parameterType="int" resultMap="getDp">
+		select * from dp,pt where dp.dpid=pt.dp_id and dp.dpid=#{dpid};
+</select>
+
+<resultMap type="com.main.model.DataPath" id="getDp">
+<id property="dpid" column="dpid"></id>
+<result property="state" column="state"></result>
+<result property="is_active" column="is_active"></result>
+<result property="supported_ofp_version_copy" column="supported_ofp_version"></result>
+<result property="addresscopy" column="address"></result>
+<collection property="ports" ofType="com.main.model.Port">
+  	<id property="portid" column="portid"></id>
+  	<id property="hw_addr" column="hw_addr"></id>
+  	<id property="name" column="name"></id>
+  	<id property="dp_id" column="dp_id"></id>
+</collection>
+</resultMap>
+
+<insert id="insertDp" parameterType="com.main.model.DataPath"  keyProperty="id" useGeneratedKeys="true">
+		insert into dp
+		(dpid,state,is_active,supported_ofp_version,address) values
+		(#{dpid},#{state},#{is_active},#{supported_ofp_version_copy},#{address_copy})
+</insert>
+
+
+<select id="selectAll" resultMap="getDp">
+		select * from dp,pt where dp.dpid=pt.dp_id ;
+</select>
+
+
+
+
+</mapper>

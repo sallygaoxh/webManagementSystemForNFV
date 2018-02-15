@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.main.dao.ONUDao">
+
+<select id="selectAll"  resultType="com.main.model.ONU">
+		select * from logic_onu
+</select>
+
+<select id="selectById"  resultType="com.main.model.ONU">
+		select * from logic_onu where onu_id=#{onu_id}
+</select>
+
+<select id="selectOLT"  parameterType="int"  resultType="com.main.model.ONU">
+		select * from logic_onu where olt_id=#{olt_id}
+</select>
+
+<select id="selectVir" parameterType="int" resultType="com.main.model.ONU">
+		select * from logic_onu where vir_id=#{vir_id}
+</select>
+
+<select id="findDistinct"  parameterType="String"  resultType="int">
+  select distinct ${_parameter} from logic_onu
+</select>
+
+<insert id="insertONU" parameterType="com.main.model.ONU"  keyProperty="id" useGeneratedKeys="true">
+		insert into logic_onu
+		(onu_type,olt_id,mac_addr,vlan_id,onu_state,onu_bandwith,vir_id) values
+		(#{onu_type},#{olt_id},#{mac_addr},#{vlan_id},#{onu_state},#{onu_bandwith},#{vir_id})
+</insert>
+
+<delete  id="deleteById" parameterType="int">
+        delete from logic_onu where onu_id=#{onu_id}
+</delete>
+
+<update id="updateOnu" parameterType="com.main.model.ONU">
+		update  logic_onu 
+		
+		<set>
+			<if test="onu_type!=null and onu_type!=''">
+			 onu_type=#{onu_type},
+			</if>
+			<if test="olt_id!=null and olt_id!=''">
+			 olt_id=#{olt_id},
+			</if>
+			<if test="mac_addr!=null and mac_addr!=''">
+			 mac_addr=#{mac_addr},
+			</if>
+			<if test="vlan_id!=null and vlan_id!=''">
+			 vlan_id=#{vlan_id},
+			</if>
+			<if test="onu_state!=null and onu_state!=''">
+			 onu_state=#{onu_state},
+			</if>
+			<if test="onu_bandwith!=null and onu_bandwith!=''">
+			 onu_bandwith=#{onu_bandwith},
+			</if>
+			<if test="vir_id!=null and vir_id!=''">
+			 vir_id=#{vir_id},
+			</if>
+		</set>
+		
+		where onu_id=#{onu_id} 
+	
+</update>
+
+<select id="queryOnu" parameterType="com.main.model.ONU" resultType="com.main.model.ONU">
+		select * from logic_onu
+		<where>
+			<if test="onu_type!=null  and onu_type!=''">
+				and onu_type like #{onu_type}
+			</if>
+		</where>
+	</select>
+
+
+
+
+</mapper>

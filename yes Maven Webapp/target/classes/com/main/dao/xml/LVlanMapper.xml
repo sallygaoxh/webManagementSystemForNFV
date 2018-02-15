@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.main.dao.LVlanMapper" >
+  <resultMap id="BaseResultMap" type="com.main.model.LVlan" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="ptCy" property="ptcy" jdbcType="VARCHAR" />
+    <result column="swiType" property="switype" jdbcType="INTEGER" />
+    <result column="vby1" property="vby1" jdbcType="VARCHAR" />
+    <result column="vby2" property="vby2" jdbcType="VARCHAR" />
+    <result column="vby3" property="vby3" jdbcType="INTEGER" />
+    <result column="vby4" property="vby4" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, ptCy, swiType, vby1, vby2, vby3, vby4
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from l_vlan
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+  	select * from l_vlan
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from l_vlan
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.main.model.LVlan" >
+    insert into l_vlan (id, name, ptCy, 
+      swiType, vby1, vby2, 
+      vby3, vby4)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{ptcy,jdbcType=VARCHAR}, 
+      #{switype,jdbcType=INTEGER}, #{vby1,jdbcType=VARCHAR}, #{vby2,jdbcType=VARCHAR}, 
+      #{vby3,jdbcType=INTEGER}, #{vby4,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.main.model.LVlan" >
+    insert into l_vlan
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="ptcy != null" >
+        ptCy,
+      </if>
+      <if test="switype != null" >
+        swiType,
+      </if>
+      <if test="vby1 != null" >
+        vby1,
+      </if>
+      <if test="vby2 != null" >
+        vby2,
+      </if>
+      <if test="vby3 != null" >
+        vby3,
+      </if>
+      <if test="vby4 != null" >
+        vby4,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="ptcy != null" >
+        #{ptcy,jdbcType=VARCHAR},
+      </if>
+      <if test="switype != null" >
+        #{switype,jdbcType=INTEGER},
+      </if>
+      <if test="vby1 != null" >
+        #{vby1,jdbcType=VARCHAR},
+      </if>
+      <if test="vby2 != null" >
+        #{vby2,jdbcType=VARCHAR},
+      </if>
+      <if test="vby3 != null" >
+        #{vby3,jdbcType=INTEGER},
+      </if>
+      <if test="vby4 != null" >
+        #{vby4,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.main.model.LVlan" >
+    update l_vlan
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="ptcy != null" >
+        ptCy = #{ptcy,jdbcType=VARCHAR},
+      </if>
+      <if test="switype != null" >
+        swiType = #{switype,jdbcType=INTEGER},
+      </if>
+      <if test="vby1 != null" >
+        vby1 = #{vby1,jdbcType=VARCHAR},
+      </if>
+      <if test="vby2 != null" >
+        vby2 = #{vby2,jdbcType=VARCHAR},
+      </if>
+      <if test="vby3 != null" >
+        vby3 = #{vby3,jdbcType=INTEGER},
+      </if>
+      <if test="vby4 != null" >
+        vby4 = #{vby4,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.main.model.LVlan" >
+    update l_vlan
+    set name = #{name,jdbcType=VARCHAR},
+      ptCy = #{ptcy,jdbcType=VARCHAR},
+      swiType = #{switype,jdbcType=INTEGER},
+      vby1 = #{vby1,jdbcType=VARCHAR},
+      vby2 = #{vby2,jdbcType=VARCHAR},
+      vby3 = #{vby3,jdbcType=INTEGER},
+      vby4 = #{vby4,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

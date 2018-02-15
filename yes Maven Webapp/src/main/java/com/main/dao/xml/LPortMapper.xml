@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.main.dao.LPortMapper" >
+  <resultMap id="BaseResultMap" type="com.main.model.LPort" >
+    <id column="inter" property="inter" jdbcType="VARCHAR" />
+    <result column="valid" property="valid" jdbcType="INTEGER" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="ipAdd" property="ipadd" jdbcType="VARCHAR" />
+    <result column="prol" property="prol" jdbcType="VARCHAR" />
+    <result column="vir" property="vir" jdbcType="INTEGER" />
+    <result column="method" property="method" jdbcType="INTEGER" />
+    <result column="bw" property="bw" jdbcType="INTEGER" />
+    <result column="delay" property="delay" jdbcType="INTEGER" />
+    <result column="inuti" property="inuti" jdbcType="VARCHAR" />
+    <result column="oututi" property="oututi" jdbcType="VARCHAR" />
+    <result column="inerrors" property="inerrors" jdbcType="BIGINT" />
+    <result column="outerrors" property="outerrors" jdbcType="BIGINT" />
+    <result column="swiType" property="switype" jdbcType="INTEGER" />
+    <result column="vlCy" property="vlcy" jdbcType="VARCHAR" />
+    <result column="tbCy" property="tbcy" jdbcType="VARCHAR" />
+    <result column="pby1" property="pby1" jdbcType="VARCHAR" />
+    <result column="pby2" property="pby2" jdbcType="VARCHAR" />
+    <result column="pby3" property="pby3" jdbcType="INTEGER" />
+    <result column="pby4" property="pby4" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    inter, valid, status, ipAdd, prol, vir, method, bw, delay, inuti, oututi, inerrors, 
+    outerrors, swiType, vlCy, tbCy, pby1, pby2, pby3, pby4
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from l_port
+    where inter = #{inter,jdbcType=VARCHAR} and  pby1 = #{pby1,jdbcType=VARCHAR}
+  </select>
+   <select id="selectByInterAndDpid" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select * from l_port where inter=#{0} and pby1=#{1}
+  </select>
+  <select id="selectDistinct" parameterType="String"  resultType="String" >
+    select distinct ${_parameter} from l_port
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+  select * from l_port
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from l_port
+    where inter = #{inter,jdbcType=VARCHAR} and pby1 = #{pby1,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.main.model.LPort" >
+    insert into l_port (inter, valid, status, 
+      ipAdd, prol, vir, method, 
+      bw, delay, inuti, oututi, 
+      inerrors, outerrors, swiType, 
+      vlCy, tbCy, pby1, pby2, 
+      pby3, pby4)
+    values (#{inter,jdbcType=VARCHAR}, #{valid,jdbcType=INTEGER}, #{status,jdbcType=INTEGER}, 
+      #{ipadd,jdbcType=VARCHAR}, #{prol,jdbcType=VARCHAR}, #{vir,jdbcType=INTEGER}, #{method,jdbcType=INTEGER}, 
+      #{bw,jdbcType=INTEGER}, #{delay,jdbcType=INTEGER}, #{inuti,jdbcType=VARCHAR}, #{oututi,jdbcType=VARCHAR}, 
+      #{inerrors,jdbcType=BIGINT}, #{outerrors,jdbcType=BIGINT}, #{switype,jdbcType=INTEGER}, 
+      #{vlcy,jdbcType=VARCHAR}, #{tbcy,jdbcType=VARCHAR}, #{pby1,jdbcType=VARCHAR}, #{pby2,jdbcType=VARCHAR}, 
+      #{pby3,jdbcType=INTEGER}, #{pby4,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.main.model.LPort" >
+    insert into l_port
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="inter != null" >
+        inter,
+      </if>
+      <if test="valid != null" >
+        valid,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="ipadd != null" >
+        ipAdd,
+      </if>
+      <if test="prol != null" >
+        prol,
+      </if>
+      <if test="vir != null" >
+        vir,
+      </if>
+      <if test="method != null" >
+        method,
+      </if>
+      <if test="bw != null" >
+        bw,
+      </if>
+      <if test="delay != null" >
+        delay,
+      </if>
+      <if test="inuti != null" >
+        inuti,
+      </if>
+      <if test="oututi != null" >
+        oututi,
+      </if>
+      <if test="inerrors != null" >
+        inerrors,
+      </if>
+      <if test="outerrors != null" >
+        outerrors,
+      </if>
+      <if test="switype != null" >
+        swiType,
+      </if>
+      <if test="vlcy != null" >
+        vlCy,
+      </if>
+      <if test="tbcy != null" >
+        tbCy,
+      </if>
+      <if test="pby1 != null" >
+        pby1,
+      </if>
+      <if test="pby2 != null" >
+        pby2,
+      </if>
+      <if test="pby3 != null" >
+        pby3,
+      </if>
+      <if test="pby4 != null" >
+        pby4,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="inter != null" >
+        #{inter,jdbcType=VARCHAR},
+      </if>
+      <if test="valid != null" >
+        #{valid,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="ipadd != null" >
+        #{ipadd,jdbcType=VARCHAR},
+      </if>
+      <if test="prol != null" >
+        #{prol,jdbcType=VARCHAR},
+      </if>
+      <if test="vir != null" >
+        #{vir,jdbcType=INTEGER},
+      </if>
+      <if test="method != null" >
+        #{method,jdbcType=INTEGER},
+      </if>
+      <if test="bw != null" >
+        #{bw,jdbcType=INTEGER},
+      </if>
+      <if test="delay != null" >
+        #{delay,jdbcType=INTEGER},
+      </if>
+      <if test="inuti != null" >
+        #{inuti,jdbcType=VARCHAR},
+      </if>
+      <if test="oututi != null" >
+        #{oututi,jdbcType=VARCHAR},
+      </if>
+      <if test="inerrors != null" >
+        #{inerrors,jdbcType=BIGINT},
+      </if>
+      <if test="outerrors != null" >
+        #{outerrors,jdbcType=BIGINT},
+      </if>
+      <if test="switype != null" >
+        #{switype,jdbcType=INTEGER},
+      </if>
+      <if test="vlcy != null" >
+        #{vlcy,jdbcType=VARCHAR},
+      </if>
+      <if test="tbcy != null" >
+        #{tbcy,jdbcType=VARCHAR},
+      </if>
+      <if test="pby1 != null" >
+        #{pby1,jdbcType=VARCHAR},
+      </if>
+      <if test="pby2 != null" >
+        #{pby2,jdbcType=VARCHAR},
+      </if>
+      <if test="pby3 != null" >
+        #{pby3,jdbcType=INTEGER},
+      </if>
+      <if test="pby4 != null" >
+        #{pby4,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.main.model.LPort" >
+    update l_port
+    <set >
+      <if test="valid != null" >
+        valid = #{valid,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="ipadd != null" >
+        ipAdd = #{ipadd,jdbcType=VARCHAR},
+      </if>
+      <if test="prol != null" >
+        prol = #{prol,jdbcType=VARCHAR},
+      </if>
+      <if test="vir != null" >
+        vir = #{vir,jdbcType=INTEGER},
+      </if>
+      <if test="method != null" >
+        method = #{method,jdbcType=INTEGER},
+      </if>
+      <if test="bw != null" >
+        bw = #{bw,jdbcType=INTEGER},
+      </if>
+      <if test="delay != null" >
+        delay = #{delay,jdbcType=INTEGER},
+      </if>
+      <if test="inuti != null" >
+        inuti = #{inuti,jdbcType=VARCHAR},
+      </if>
+      <if test="oututi != null" >
+        oututi = #{oututi,jdbcType=VARCHAR},
+      </if>
+      <if test="inerrors != null" >
+        inerrors = #{inerrors,jdbcType=BIGINT},
+      </if>
+      <if test="outerrors != null" >
+        outerrors = #{outerrors,jdbcType=BIGINT},
+      </if>
+      <if test="switype != null" >
+        swiType = #{switype,jdbcType=INTEGER},
+      </if>
+      <if test="vlcy != null" >
+        vlCy = #{vlcy,jdbcType=VARCHAR},
+      </if>
+      <if test="tbcy != null" >
+        tbCy = #{tbcy,jdbcType=VARCHAR},
+      </if>
+      <if test="pby1 != null" >
+        pby1 = #{pby1,jdbcType=VARCHAR},
+      </if>
+      <if test="pby2 != null" >
+        pby2 = #{pby2,jdbcType=VARCHAR},
+      </if>
+      <if test="pby3 != null" >
+        pby3 = #{pby3,jdbcType=INTEGER},
+      </if>
+      <if test="pby4 != null" >
+        pby4 = #{pby4,jdbcType=INTEGER},
+      </if>
+    </set>
+    where inter = #{inter,jdbcType=VARCHAR} and  pby1 = #{pby1,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.main.model.LPort" >
+    update l_port
+    set valid = #{valid,jdbcType=INTEGER},
+      status = #{status,jdbcType=INTEGER},
+      ipAdd = #{ipadd,jdbcType=VARCHAR},
+      prol = #{prol,jdbcType=VARCHAR},
+      vir = #{vir,jdbcType=INTEGER},
+      method = #{method,jdbcType=INTEGER},
+      bw = #{bw,jdbcType=INTEGER},
+      delay = #{delay,jdbcType=INTEGER},
+      inuti = #{inuti,jdbcType=VARCHAR},
+      oututi = #{oututi,jdbcType=VARCHAR},
+      inerrors = #{inerrors,jdbcType=BIGINT},
+      outerrors = #{outerrors,jdbcType=BIGINT},
+      swiType = #{switype,jdbcType=INTEGER},
+      vlCy = #{vlcy,jdbcType=VARCHAR},
+      tbCy = #{tbcy,jdbcType=VARCHAR},
+      pby1 = #{pby1,jdbcType=VARCHAR},
+      pby2 = #{pby2,jdbcType=VARCHAR},
+      pby3 = #{pby3,jdbcType=INTEGER},
+      pby4 = #{pby4,jdbcType=INTEGER}
+    where inter = #{inter,jdbcType=VARCHAR} and  pby1 = #{pby1,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.main.dao.PortDao">
+
+
+<insert id="insertPt" parameterType="com.main.model.Port"  keyProperty="id" useGeneratedKeys="true">
+		insert into pt
+		(portid,hw_addr,name,dp_id) values
+		(#{portid},#{hw_addr},#{name},#{dp_id})
+</insert>
+
+<select id="selectPt" parameterType="int" resultType="com.main.model.Port">
+		select * from pt where portid=#{portid};
+</select>
+
+
+
+</mapper>

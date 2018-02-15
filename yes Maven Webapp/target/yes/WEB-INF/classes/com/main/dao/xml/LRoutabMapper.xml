@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.main.dao.LRoutabMapper" >
+  <resultMap id="BaseResultMap" type="com.main.model.LRoutab" >
+    <id column="dest" property="dest" jdbcType="VARCHAR" />
+    <result column="pre" property="pre" jdbcType="INTEGER" />
+    <result column="cost" property="cost" jdbcType="INTEGER" />
+    <result column="nextHop" property="nexthop" jdbcType="VARCHAR" />
+    <result column="inter" property="inter" jdbcType="VARCHAR" />
+    <result column="swiType" property="switype" jdbcType="INTEGER" />
+    <result column="rby1" property="rby1" jdbcType="VARCHAR" />
+    <result column="rby2" property="rby2" jdbcType="VARCHAR" />
+    <result column="rby3" property="rby3" jdbcType="INTEGER" />
+    <result column="rby4" property="rby4" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    dest, pre, cost, nextHop, inter, swiType, rby1, rby2, rby3, rby4
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from l_routab
+    where dest = #{dest,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from l_routab
+    where dest = #{dest,jdbcType=VARCHAR}
+  </delete>
+  <select id="selectAll" resultMap="BaseResultMap">
+  select * from l_routab
+  </select>
+  <insert id="insert" parameterType="com.main.model.LRoutab" >
+    insert into l_routab (dest, pre, cost, 
+      nextHop, inter, swiType, 
+      rby1, rby2, rby3, rby4
+      )
+    values (#{dest,jdbcType=VARCHAR}, #{pre,jdbcType=INTEGER}, #{cost,jdbcType=INTEGER}, 
+      #{nexthop,jdbcType=VARCHAR}, #{inter,jdbcType=VARCHAR}, #{switype,jdbcType=INTEGER}, 
+      #{rby1,jdbcType=VARCHAR}, #{rby2,jdbcType=VARCHAR}, #{rby3,jdbcType=INTEGER}, #{rby4,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.main.model.LRoutab" >
+    insert into l_routab
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="dest != null" >
+        dest,
+      </if>
+      <if test="pre != null" >
+        pre,
+      </if>
+      <if test="cost != null" >
+        cost,
+      </if>
+      <if test="nexthop != null" >
+        nextHop,
+      </if>
+      <if test="inter != null" >
+        inter,
+      </if>
+      <if test="switype != null" >
+        swiType,
+      </if>
+      <if test="rby1 != null" >
+        rby1,
+      </if>
+      <if test="rby2 != null" >
+        rby2,
+      </if>
+      <if test="rby3 != null" >
+        rby3,
+      </if>
+      <if test="rby4 != null" >
+        rby4,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="dest != null" >
+        #{dest,jdbcType=VARCHAR},
+      </if>
+      <if test="pre != null" >
+        #{pre,jdbcType=INTEGER},
+      </if>
+      <if test="cost != null" >
+        #{cost,jdbcType=INTEGER},
+      </if>
+      <if test="nexthop != null" >
+        #{nexthop,jdbcType=VARCHAR},
+      </if>
+      <if test="inter != null" >
+        #{inter,jdbcType=VARCHAR},
+      </if>
+      <if test="switype != null" >
+        #{switype,jdbcType=INTEGER},
+      </if>
+      <if test="rby1 != null" >
+        #{rby1,jdbcType=VARCHAR},
+      </if>
+      <if test="rby2 != null" >
+        #{rby2,jdbcType=VARCHAR},
+      </if>
+      <if test="rby3 != null" >
+        #{rby3,jdbcType=INTEGER},
+      </if>
+      <if test="rby4 != null" >
+        #{rby4,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.main.model.LRoutab" >
+    update l_routab
+    <set >
+      <if test="pre != null" >
+        pre = #{pre,jdbcType=INTEGER},
+      </if>
+      <if test="cost != null" >
+        cost = #{cost,jdbcType=INTEGER},
+      </if>
+      <if test="nexthop != null" >
+        nextHop = #{nexthop,jdbcType=VARCHAR},
+      </if>
+      <if test="inter != null" >
+        inter = #{inter,jdbcType=VARCHAR},
+      </if>
+      <if test="switype != null" >
+        swiType = #{switype,jdbcType=INTEGER},
+      </if>
+      <if test="rby1 != null" >
+        rby1 = #{rby1,jdbcType=VARCHAR},
+      </if>
+      <if test="rby2 != null" >
+        rby2 = #{rby2,jdbcType=VARCHAR},
+      </if>
+      <if test="rby3 != null" >
+        rby3 = #{rby3,jdbcType=INTEGER},
+      </if>
+      <if test="rby4 != null" >
+        rby4 = #{rby4,jdbcType=INTEGER},
+      </if>
+    </set>
+    where dest = #{dest,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.main.model.LRoutab" >
+    update l_routab
+    set pre = #{pre,jdbcType=INTEGER},
+      cost = #{cost,jdbcType=INTEGER},
+      nextHop = #{nexthop,jdbcType=VARCHAR},
+      inter = #{inter,jdbcType=VARCHAR},
+      swiType = #{switype,jdbcType=INTEGER},
+      rby1 = #{rby1,jdbcType=VARCHAR},
+      rby2 = #{rby2,jdbcType=VARCHAR},
+      rby3 = #{rby3,jdbcType=INTEGER},
+      rby4 = #{rby4,jdbcType=INTEGER}
+    where dest = #{dest,jdbcType=VARCHAR}
+  </update>
+</mapper>

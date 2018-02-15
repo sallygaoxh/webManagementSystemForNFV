@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.main.dao.TestPortMapper" >
+  <resultMap id="BaseResultMap" type="com.main.model.TestPort" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="BIT" />
+    <result column="inter" property="inter" jdbcType="VARCHAR" />
+    <result column="vir" property="vir" jdbcType="INTEGER" />
+    <result column="type" property="type" jdbcType="VARCHAR" />
+    <result column="bw" property="bw" jdbcType="INTEGER" />
+    <result column="delay" property="delay" jdbcType="INTEGER" />
+    <result column="vlanid" property="vlanid" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, status, inter, vir, type, bw, delay, vlanid
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from test_port
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="select" resultMap="BaseResultMap">
+  	select * from test_port
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from test_port
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.main.model.TestPort" >
+    insert into test_port (id, name, status, 
+      inter, vir, type, bw, 
+      delay, vlanid)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{status,jdbcType=BIT}, 
+      #{inter,jdbcType=VARCHAR}, #{vir,jdbcType=INTEGER}, #{type,jdbcType=VARCHAR}, #{bw,jdbcType=INTEGER}, 
+      #{delay,jdbcType=INTEGER}, #{vlanid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.main.model.TestPort" >
+    insert into test_port
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="inter != null" >
+        inter,
+      </if>
+      <if test="vir != null" >
+        vir,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="bw != null" >
+        bw,
+      </if>
+      <if test="delay != null" >
+        delay,
+      </if>
+      <if test="vlanid != null" >
+        vlanid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=BIT},
+      </if>
+      <if test="inter != null" >
+        #{inter,jdbcType=VARCHAR},
+      </if>
+      <if test="vir != null" >
+        #{vir,jdbcType=INTEGER},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="bw != null" >
+        #{bw,jdbcType=INTEGER},
+      </if>
+      <if test="delay != null" >
+        #{delay,jdbcType=INTEGER},
+      </if>
+      <if test="vlanid != null" >
+        #{vlanid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.main.model.TestPort" >
+    update test_port
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=BIT},
+      </if>
+      <if test="inter != null" >
+        inter = #{inter,jdbcType=VARCHAR},
+      </if>
+      <if test="vir != null" >
+        vir = #{vir,jdbcType=INTEGER},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="bw != null" >
+        bw = #{bw,jdbcType=INTEGER},
+      </if>
+      <if test="delay != null" >
+        delay = #{delay,jdbcType=INTEGER},
+      </if>
+      <if test="vlanid != null" >
+        vlanid = #{vlanid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.main.model.TestPort" >
+    update test_port
+    set name = #{name,jdbcType=VARCHAR},
+      status = #{status,jdbcType=BIT},
+      inter = #{inter,jdbcType=VARCHAR},
+      vir = #{vir,jdbcType=INTEGER},
+      type = #{type,jdbcType=VARCHAR},
+      bw = #{bw,jdbcType=INTEGER},
+      delay = #{delay,jdbcType=INTEGER},
+      vlanid = #{vlanid,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
